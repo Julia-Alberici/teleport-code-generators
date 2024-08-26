@@ -13,7 +13,7 @@ export const addAttributeToNode = (node: HastNode, key: string, value: string) =
 }
 
 export const addClassToNode = (node: HastNode, className: string) => {
-  node.properties.class = className
+  node.properties.class = [node.properties.class, className].filter(Boolean).join(' ')
 }
 
 export const addChildNode = (node: HastNode, child: HastNode) => {
